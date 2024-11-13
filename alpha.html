@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<!-- Daisy ui theme set with data-theme="white or black" -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.14/dist/full.min.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,100..900;1,100..900&family=Phudu:wght@300..900&display=swap" rel="stylesheet">
+    <title>Alpha Class Pro</title>
+</head>
+<body>
+    <audio id="win-sound" src="Sounds/Sonic Ring - Sound Effect (HD).mp3" type="audio/mp3" ></audio>
+    <audio id="lose-sound" src="Sounds/sonic the hedgehog Sonic Death sound effect.mp3" type="audio/mp3"></audio>
+    <main class="bg-[#010313] min-h-screen bg-[url(Images/background.png)] bg-no-repeat bg-center" >
+        <section id="home-screen" class="flex flex-col items-center min-h-screen justify-center gap-1 ">
+            <h1 id="font-phudu" class="text-white text-center text-8xl">ALPHABET CLASH</h1>
+            <p class="text-white">Unleash Your Keyboard Kung Fu :</p>
+            <p class="text-white">Press "Enter" To Play :3</p>
+            <button id="play-now-btn" type="button" class="text-black bg-white hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm px-5 py-2.5 text-center me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Play Now !</button>
+        </section>
+    
+        <section id="play-ground-screen" class="hidden">
+            <div class="flex flex-col items-center gap-20 pt-10">
+                <div class="artboard artboard-horizontal phone-6 border-[20px] rounded-2xl border-[#010313cc] bg-[#ffffffb3]">
+                    <div class="flex justify-center">
+                        <p id="font-phudu" class="bg-[#2F2941] text-white px-6 pb-4 pt-4 rounded-b-xl">Don't watch keyboard while playing...</p>
+                    </div>
+                   <div class="flex justify-center items-center h-48">
+                    <p id="current-alphabet" class=" text-9xl font-bold text-black uppercase">
+                        
+                    </p>
+                   </div>
+                </div>
+            <!-- keyboard -->
+            <div>
+                <div class="my-1 flex w-full justify-center gap-1">
+                    <kbd id="q" class="kbd">q</kbd>
+                    <kbd id="w" class="kbd">w</kbd>
+                    <kbd id="e" class="kbd">e</kbd>
+                    <kbd id="r" class="kbd">r</kbd>
+                    <kbd id="t" class="kbd">t</kbd>
+                    <kbd id="y" class="kbd">y</kbd>
+                    <kbd id="u" class="kbd">u</kbd>
+                    <kbd id="i" class="kbd">i</kbd>
+                    <kbd id="o" class="kbd">o</kbd>
+                    <kbd id="p" class="kbd">p</kbd>
+                  </div>
+                  <div class="my-1 flex w-full justify-center gap-1">
+                    <kbd id="a" class="kbd">a</kbd>
+                    <kbd id="s" class="kbd">s</kbd>
+                    <kbd id="d" class="kbd">d</kbd>
+                    <kbd id="f" class="kbd">f</kbd>
+                    <kbd id="g" class="kbd">g</kbd>
+                    <kbd id="h" class="kbd">h</kbd>
+                    <kbd id="j" class="kbd">j</kbd>
+                    <kbd id="k" class="kbd">k</kbd>
+                    <kbd id="l" class="kbd">l</kbd>
+                  </div>
+                  <div class="my-1 flex w-full justify-center gap-1">
+                    <kbd id="z" class="kbd">z</kbd>
+                    <kbd id="x" class="kbd">x</kbd>
+                    <kbd id="c" class="kbd">c</kbd>
+                    <kbd id="v" class="kbd">v</kbd>
+                    <kbd id="b" class="kbd">b</kbd>
+                    <kbd id="n" class="kbd">n</kbd>
+                    <kbd id="m" class="kbd">m</kbd>
+                    <kbd id="/" class="kbd">/</kbd>
+                  </div>
+            </div>
+            <!-- Life score  -->
+            <div class="flex justify-between w-4/5">
+                <button type="button" class="inline-flex items-center px-5 py-2.5 text-sm font-medium text-center text-black bg-pink-300 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                    Life
+                    <span class="inline-flex items-center justify-center w-4 h-4 ms-2 mt-1 text-xs font-semibold text-blue-800 rounded-full">
+                        <i class='bx bxs-heart text-sm pt-[2px] pr-[1px] text-pink-500' ></i><span id="current-life" class="text-black pl-1">5</span>
+                    </span>
+                    </button>
+                    <button type="button" class="inline-flex items-center px-5 py-2.5 text-sm font-medium text-center text-white bg-purple-500 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                        Score
+                        <span class="inline-flex items-center justify-center w-4 h-4 ms-2 mt-1 text-xs font-semibold rounded-full">
+                            <i class='bx bxs-dollar-circle text-xl pt-[1px] text-[black]' ></i><span id="current-score" class="text-black pl-1">0</span>
+                        </span>
+                        </button>
+            </div>
+        </div>
+        </section>
+        <!-- Final Score Start  -->
+        <section id="game-over-screen" class="score flex justify-center items-center min-h-screen hidden">
+            <div class="text-center space-y-10 bg-[#ffffff33] p-4 rounded-lg">
+                <h1 class="text-8xl text-white">
+                    <span class="font-extrabold">Game Over!</span>
+                    <br>
+                    <span class="font-extrabold">Score:</span>
+                    <span id="game-score" class="text-white"></span>
+                </h1>
+                <button id="play-again-btn" class=" bg-white p-5 rounded-lg hover:bg-slate-400 ">Play Again</button>
+                <p class="text-white">Huh !! loses in Easy game !</p>
+            </div>
+        </section>
+    </main>
+    <script src="scripts/alpha.js"></script>
+    <script src="scripts/utilize.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+</body>
+</html>
